@@ -35,7 +35,6 @@ struct Price: Codable {
 
 struct Delivery: Codable {
     var time: Time?
-    var text: String?
 }
 
 struct Time: Codable {

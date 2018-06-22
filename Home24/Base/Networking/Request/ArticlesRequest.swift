@@ -32,18 +32,4 @@ class ArticlesRequest: Requestable {
             completion(articles._embedded?.articles, nil)
         }.resume()
     }
-//        guard let mock = testReadJSON(name: "ArticlesMocked"),
-//            let articles = try? JSONDecoder().decode(Home.self, from: mock) else {
-//            completion(nil, "Not found")
-//            return
-//        }
-//
-//        completion(articles._embedded?.articles, nil)
-//    }
-//
-//    func testReadJSON(name: String) -> Data? {
-//        let path = Bundle.main.path(forResource: name, ofType: "json")
-//        let data = try! Data(contentsOf: URL(fileURLWithPath: path!))
-//        return data
-//    }
 }

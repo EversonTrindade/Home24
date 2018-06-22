@@ -23,7 +23,7 @@ protocol HomeViewModelPresentable: class {
 class HomeViewModel: HomeViewModelPresentable {
     
     private weak var homeLoadContent: HomeLoadContent?
-    private var articles = [Article]()
+    var articles = [Article]()
     
     init() { }
     
