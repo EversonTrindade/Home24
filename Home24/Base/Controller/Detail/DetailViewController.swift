@@ -8,88 +8,59 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UITableViewController, DetailLoadContent {
 
+    // MARK: - IBOutlet
+    @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var priceTitleLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var availabilityTitleLbl: UILabel!
+    @IBOutlet weak var availabilityLbl: UILabel!
+    @IBOutlet weak var deliveryTitleLbl: UILabel!
+    @IBOutlet weak var deliveryLbl: UILabel!
+    @IBOutlet weak var descriptionTitleLbl: UILabel!
+    @IBOutlet weak var descritionTview: UITextView!
+    
+    // MARK: - Properties
+    private var articleLink = ""
+    private lazy var viewModel: DetailViewModelPresentable = DetailViewModel(detailLoadContent: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        viewModel.getArticleDetail(articleLink: articleLink)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func fill(articleLink: String) {
+        showLoader()
+        self.articleLink = articleLink
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func didLoadContent(_ articleDetail: Article?, _ error: String?) {
+        dismissLoader()
+        if let error = error {
+            showDefaultAlert(message: error, completeBlock: nil)
+        }
+        fill(articleDetail)
+        
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func fill(_ articleDetail: Article?) {
+        if let detail = articleDetail {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                
+                self.priceTitleLbl.text = "Price"
+                self.availabilityTitleLbl.text = "Availability"
+                self.deliveryTitleLbl.text = "Delivery"
+                self.descriptionTitleLbl.text = "Description"
+                
+                self.nameLbl.text = detail.title
+                self.priceLbl.text = "\(detail.price?.amount ?? "") \(detail.price?.currency ?? "")"
+                self.availabilityLbl.text = "\(detail.availability?.count?.description ?? "") itens"
+                self.deliveryLbl.text = "\(detail.delivery?.time?.amount ?? "") \(detail.delivery?.time?.units ?? "")"
+                self.descritionTview.text = detail.description?.htmlToString ?? ""
+            }
+        }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

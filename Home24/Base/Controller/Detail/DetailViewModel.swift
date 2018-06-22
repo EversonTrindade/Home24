@@ -7,3 +7,36 @@
 //
 
 import Foundation
+
+protocol DetailLoadContent: class {
+    func didLoadContent(_ articleDetail: Article?, _ error: String?)
+}
+
+protocol DetailViewModelPresentable: class {
+    func getArticleDetail(articleLink: String) 
+}
+
+class DetailViewModel: DetailViewModelPresentable {
+    
+    private var articleDetail: Article?
+    private weak var detailLoadContent: DetailLoadContent?
+    
+    init() { }
+    
+    init(detailLoadContent: DetailLoadContent?) {
+        self.detailLoadContent = detailLoadContent
+    }
+    
+    func getArticleDetail(articleLink: String) {
+        DetailRequest.init(articleLink: articleLink).request { (result, error) in
+            guard let detail = result else {
+                self.detailLoadContent?.didLoadContent(nil, error)
+                return
+            }
+            self.detailLoadContent?.didLoadContent(detail, nil)
+            self.articleDetail = detail
+        }
+    }
+    
+}
+

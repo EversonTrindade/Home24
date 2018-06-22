@@ -9,12 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Home24/Base/Networking/Request/ArticleRequest.swift"
-            timestampString = "551081977.741611"
+            filePath = "Home24/Base/Networking/Request/ArticlesRequest.swift"
+            timestampString = "551332911.143903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "request(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -25,12 +25,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Home24/Base/Networking/Request/ArticleRequest.swift"
-            timestampString = "551081977.742021"
+            filePath = "Home24/Base/Networking/Request/DetailRequest.swift"
+            timestampString = "551332911.1440361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "request(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -41,46 +41,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Home24/Base/Networking/Request/ArticleRequest.swift"
-            timestampString = "551081977.742304"
+            filePath = "Home24/Base/Networking/Request/DetailRequest.swift"
+            timestampString = "551332911.1441211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "request(completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Home24.ArticleRequest.request(completion: (Swift.Optional&lt;Swift.Array&lt;Home24.Article&gt;&gt;, Swift.Optional&lt;Home24.CustomError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Home24"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Everson/Git/Home24/Home24/Base/Networking/Request/ArticleRequest.swift"
-                  timestampString = "551081977.900684"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "158">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Home24.ArticleRequest.request(completion: (Swift.Optional&lt;Swift.Array&lt;Home24.Article&gt;&gt;, Swift.Optional&lt;Home24.CustomError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Home24"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Everson/Git/Home24/Home24/Base/Networking/Request/ArticleRequest.swift"
-                  timestampString = "551081977.906058"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "54">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,13 +57,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Home24/Base/Controller/Home/HomeViewModel.swift"
-            timestampString = "551081977.742507"
+            filePath = "Home24/Base/Networking/Request/DetailRequest.swift"
+            timestampString = "551332911.144184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getArticles()"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "request(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Home24/Base/Networking/Request/DetailRequest.swift"
+            timestampString = "551332911.144246"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "request(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Home24/Base/Controller/Home/HomeViewController.swift"
+            timestampString = "551332911.1443141"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

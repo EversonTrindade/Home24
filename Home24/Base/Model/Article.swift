@@ -57,7 +57,11 @@ struct Availability: Codable {
 }
 
 struct Link: Codable {
-    var `self`: SelfLink?
+    var selfLink: SelfLink?
+    
+    enum CodingKeys: String, CodingKey {
+        case selfLink = "self"
+    }
 }
 
 struct SelfLink: Codable {
