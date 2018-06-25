@@ -1,11 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='Home24Tests.xctest' tests='4' failures='0'>
+<testsuites name='Home24Tests.xctest' tests='8' failures='0'>
   <testsuite name='Home24Tests.ArticleModelTests' tests='2' failures='0'>
-    <testcase classname='Home24Tests.ArticleModelTests' name='testShouldValidateArrayOfArticle' time='0.024'/>
-    <testcase classname='Home24Tests.ArticleModelTests' name='testShouldValidateArticleDetail' time='0.008'/>
+    <testcase classname='Home24Tests.ArticleModelTests' name='testShouldValidateArrayOfArticle' time='0.019'/>
+    <testcase classname='Home24Tests.ArticleModelTests' name='testShouldValidateArticleDetail' time='0.009'/>
   </testsuite>
   <testsuite name='Home24Tests.Home24Tests' tests='2' failures='0'>
     <testcase classname='Home24Tests.Home24Tests' name='testExample' time='0.001'/>
-    <testcase classname='Home24Tests.Home24Tests' name='testPerformanceExample' time='0.553'/>
+    <testcase classname='Home24Tests.Home24Tests' name='testPerformanceExample' time='0.441'/>
+  </testsuite>
+  <testsuite name='Home24Tests.HomeViewModelTests' tests='4' failures='0'>
+    <testcase classname='Home24Tests.HomeViewModelTests' name='testShouldValidateGetArticleDTO' time='0.007'/>
+    <testcase classname='Home24Tests.HomeViewModelTests' name='testShouldValidateGetArticleLink' time='0.007'/>
+    <testcase classname='Home24Tests.HomeViewModelTests' name='testShouldValidateNumberOfItemsInSection' time='0.008'/>
+    <testcase classname='Home24Tests.HomeViewModelTests' name='testShouldValidateNumberOfSections' time='0.007'/>
   </testsuite>
 </testsuites>

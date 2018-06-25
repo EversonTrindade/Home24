@@ -24,7 +24,7 @@ class DetailViewController: UITableViewController, DetailLoadContent {
     
     // MARK: - Properties
     private var articleLink = ""
-    private lazy var viewModel: DetailViewModelPresentable = DetailViewModel(detailLoadContent: self)
+    private lazy var viewModel: DetailViewModelPresentable = DetailViewModel(self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,5 +62,17 @@ class DetailViewController: UITableViewController, DetailLoadContent {
                 self.descritionTview.text = detail.description?.htmlToString ?? ""
             }
         }
+    }
+    
+    @IBAction func buyItemAction(_ sender: Any) {
+        let action = UIAlertController(title: "Do you want to buy this item?", message: nil, preferredStyle: .actionSheet)
+        let noButton = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let yesButton = UIAlertAction(title: "Yes", style: .default) { (action) in
+            self.viewModel.saveArticle()
+            self.showDefaultAlert(message: "Item added in the cart :)", completeBlock: nil)
+        }
+        action.addAction(noButton)
+        action.addAction(yesButton)
+        present(action, animated: true, completion: nil)
     }
 }

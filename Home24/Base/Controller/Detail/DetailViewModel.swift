@@ -13,7 +13,8 @@ protocol DetailLoadContent: class {
 }
 
 protocol DetailViewModelPresentable: class {
-    func getArticleDetail(articleLink: String) 
+    func getArticleDetail(articleLink: String)
+    func saveArticle()
 }
 
 class DetailViewModel: DetailViewModelPresentable {
@@ -23,7 +24,7 @@ class DetailViewModel: DetailViewModelPresentable {
     
     init() { }
     
-    init(detailLoadContent: DetailLoadContent?) {
+    init(_ detailLoadContent: DetailLoadContent?) {
         self.detailLoadContent = detailLoadContent
     }
     
@@ -38,5 +39,10 @@ class DetailViewModel: DetailViewModelPresentable {
         }
     }
     
+    func saveArticle() {
+        if let article = self.articleDetail {
+            FavoriteManager().save(favorite: article)
+        }
+    }
 }
 

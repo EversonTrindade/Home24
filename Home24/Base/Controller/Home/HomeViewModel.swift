@@ -16,8 +16,9 @@ protocol HomeViewModelPresentable: class {
     func getArticles()
     func numberOfSections() -> Int
     func numberOfItemsInSection() -> Int
-    func getArticleDTO(index: Int) -> HomeCellDTO
+    func getArticleDTO(index: Int) -> ArticleCellDTO
     func getArticleLink(index: Int) -> String
+    func getArticlesCount() -> Int
 }
 
 class HomeViewModel: HomeViewModelPresentable {
@@ -27,7 +28,7 @@ class HomeViewModel: HomeViewModelPresentable {
     
     init() { }
     
-    init(homeLoadContent: HomeLoadContent?) {
+    init(_ homeLoadContent: HomeLoadContent?) {
         self.homeLoadContent = homeLoadContent
     }
     
@@ -47,14 +48,14 @@ class HomeViewModel: HomeViewModelPresentable {
     }
     
     func numberOfItemsInSection() -> Int {
-        return articles.count
+        return articles.count > 0 ? articles.count : 1
     }
     
-    func getArticleDTO(index: Int) -> HomeCellDTO {
+    func getArticleDTO(index: Int) -> ArticleCellDTO {
         guard let article = self.articles.object(index: index) else {
-            return HomeCellDTO()
+            return ArticleCellDTO()
         }
-        return HomeCellDTO(title: article.title ?? "",
+        return ArticleCellDTO(title: article.title ?? "",
                            amount: article.price?.amount ?? "",
                            currency: article.price?.currency ?? "",
                            brand: article.brand?.title ?? "")
@@ -67,4 +68,8 @@ class HomeViewModel: HomeViewModelPresentable {
         return article._links?.selfLink?.href ?? ""
     }
     
+    func getArticlesCount() -> Int {
+        return articles.count
+    }
+
 }

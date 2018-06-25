@@ -4,7 +4,7 @@
 
 - Swift 4.1
 
-- MVMM architecture
+- MVVM architecture
 
 - No dependencies manager
 

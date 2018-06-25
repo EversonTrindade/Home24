@@ -21,7 +21,7 @@ class DetailRequest: Requestable {
             completion(nil, "Wrong URL")
             return
         }
-        
+
         URLSession.shared.dataTask(with: URLRequest(url: url)) { (data, response, error) in
             if let error = error {
                 completion(nil, error.localizedDescription)

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,22 +30,116 @@
             </objects>
             <point key="canvasLocation" x="-138" y="354"/>
         </scene>
-        <!--Item-->
+        <!--Cart View Controller-->
         <scene sceneID="UV9-UG-KUE">
             <objects>
-                <viewController id="UZV-12-mSa" sceneMemberID="viewController">
+                <viewController id="UZV-12-mSa" customClass="CartViewController" customModule="Home24" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D4w-fj-Cyb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTc-rb-a2R">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmptyCartCell" rowHeight="260" id="EVS-VY-Osm" customClass="EmptyCartCell" customModule="Home24" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="260"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EVS-VY-Osm" id="CH6-aw-UUG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-cart" translatesAutoresizingMaskIntoConstraints="NO" id="hhg-2T-Tzp">
+                                                    <rect key="frame" x="117" y="27" width="140" height="140"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="140" id="dJG-IF-047"/>
+                                                        <constraint firstAttribute="width" constant="140" id="pMb-me-Kty"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Cart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbP-3y-kfW">
+                                                    <rect key="frame" x="70" y="191" width="234" height="39"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="234" id="DaS-04-UlX"/>
+                                                        <constraint firstAttribute="height" constant="39" id="Otw-Fk-16H"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hhg-2T-Tzp" firstAttribute="centerX" secondItem="CH6-aw-UUG" secondAttribute="centerX" id="4Lm-n9-e1o"/>
+                                                <constraint firstItem="vbP-3y-kfW" firstAttribute="top" secondItem="hhg-2T-Tzp" secondAttribute="bottom" constant="24" id="5Pf-5k-6Wv"/>
+                                                <constraint firstItem="vbP-3y-kfW" firstAttribute="centerX" secondItem="CH6-aw-UUG" secondAttribute="centerX" id="A6O-TZ-Wa9"/>
+                                                <constraint firstItem="hhg-2T-Tzp" firstAttribute="top" secondItem="CH6-aw-UUG" secondAttribute="topMargin" constant="16" id="V5I-Td-qoQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartCell" rowHeight="105" id="Xd6-SC-ZXL" customClass="CartCell" customModule="Home24" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="288" width="375" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xd6-SC-ZXL" id="yyZ-Fk-vRL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjP-oC-GKs">
+                                                    <rect key="frame" x="15" y="13" width="70" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvQ-cQ-k1v">
+                                                    <rect key="frame" x="99" y="13" width="177" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKa-d6-3RI">
+                                                    <rect key="frame" x="99" y="65" width="190" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-tD-ySx">
+                                                    <rect key="frame" x="303" y="13" width="57" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="brandLbl" destination="pKa-d6-3RI" id="626-uZ-TAE"/>
+                                            <outlet property="priceLbl" destination="hgT-tD-ySx" id="fV4-lq-e2l"/>
+                                            <outlet property="titleLbl" destination="QvQ-cQ-k1v" id="4hj-NY-CDW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UZV-12-mSa" id="2PK-OR-I2u"/>
+                                    <outlet property="delegate" destination="UZV-12-mSa" id="SWz-nR-YgQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TTc-rb-a2R" firstAttribute="leading" secondItem="X36-fk-LzH" secondAttribute="leading" id="7qk-Ce-eRo"/>
+                            <constraint firstItem="TTc-rb-a2R" firstAttribute="top" secondItem="X36-fk-LzH" secondAttribute="top" id="9ER-cx-XPv"/>
+                            <constraint firstItem="TTc-rb-a2R" firstAttribute="trailing" secondItem="X36-fk-LzH" secondAttribute="trailing" id="UM7-zu-nmd"/>
+                            <constraint firstItem="TTc-rb-a2R" firstAttribute="bottom" secondItem="X36-fk-LzH" secondAttribute="bottom" id="dB7-y5-xXc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="X36-fk-LzH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="aWi-Ep-v0Z"/>
+                    <tabBarItem key="tabBarItem" title="" image="cart-icon" id="aWi-Ep-v0Z"/>
                     <navigationItem key="navigationItem" id="TkX-MW-Ydd"/>
+                    <connections>
+                        <outlet property="tableView" destination="TTc-rb-a2R" id="vVS-Kt-kWw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOA-3W-hjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="795"/>
+            <point key="canvasLocation" x="644" y="794.75262368815595"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I34-es-ATH">
@@ -62,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="-828" y="354"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="X5X-9B-Ezg">
             <objects>
                 <viewController id="P8M-Tx-8kb" customClass="HomeViewController" customModule="Home24" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +176,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCell" id="rfO-tz-Iy3" customClass="HomeCell" customModule="Home24" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="237"/>
+                                        <rect key="frame" x="96.5" y="0.0" width="182" height="237"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="237"/>
@@ -125,6 +220,24 @@
                                             <outlet property="titleLbl" destination="wrX-Gb-ERO" id="zHM-Uu-Lny"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoConnectionCell" id="uD4-lP-Egv" customClass="NoConnectionCell" customModule="Home24" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="247" width="305" height="256"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="256"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No connection :/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOR-2t-n0j">
+                                                    <rect key="frame" x="20" y="90" width="265" height="76"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="305" height="256"/>
+                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="P8M-Tx-8kb" id="Ivd-JT-1ML"/>
@@ -141,8 +254,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ma4-cD-B7C"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="1ie-9z-6LT"/>
-                    <navigationItem key="navigationItem" title="Home" id="vrY-G5-rR1"/>
+                    <tabBarItem key="tabBarItem" title="" image="home-icon" id="1ie-9z-6LT"/>
+                    <navigationItem key="navigationItem" id="vrY-G5-rR1"/>
                     <connections>
                         <outlet property="collectionView" destination="LeU-3H-YOC" id="az1-mW-ajd"/>
                         <segue destination="HPQ-VE-6e5" kind="show" identifier="goToDetail" id="BYt-sX-ZbT"/>
@@ -152,7 +265,7 @@
             </objects>
             <point key="canvasLocation" x="644" y="-0.44977511244377816"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="QoK-4E-P1c">
             <objects>
                 <tableViewController id="HPQ-VE-6e5" customClass="DetailViewController" customModule="Home24" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,7 +388,13 @@
                             <outlet property="delegate" destination="HPQ-VE-6e5" id="Cwr-n7-dau"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gQN-uP-tIF"/>
+                    <navigationItem key="navigationItem" title="Detail" id="gQN-uP-tIF">
+                        <barButtonItem key="rightBarButtonItem" title="Buy" id="lJt-ws-34r">
+                            <connections>
+                                <action selector="buyItemAction:" destination="HPQ-VE-6e5" id="7a9-Ud-Nlg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="availabilityLbl" destination="d81-L2-k7s" id="lhv-Js-UEg"/>
                         <outlet property="availabilityTitleLbl" destination="tca-Wh-cSj" id="jn8-uh-KIs"/>
@@ -294,4 +413,9 @@
             <point key="canvasLocation" x="1445.5999999999999" y="-0.44977511244377816"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart-icon" width="30" height="30"/>
+        <image name="empty-cart" width="1600" height="1600"/>
+        <image name="home-icon" width="30" height="30"/>
+    </resources>
 </document>

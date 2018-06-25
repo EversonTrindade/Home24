@@ -14,13 +14,17 @@ fileprivate struct Identifiers {
 
 class HomeViewController: UIViewController, HomeLoadContent {
 
-    private lazy var viewModel: HomeViewModelPresentable = HomeViewModel(homeLoadContent: self)
+    private lazy var viewModel: HomeViewModelPresentable = HomeViewModel(self)
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getArticles()
+//        if Reachability.isConnectedToNetwork() {
+            getArticles()
+//        } else {
+//            showDefaultAlert(message: "No Connection", completeBlock: nil)
+//        }
     }
 
     func didLoadContent(_ error: String?) {
@@ -59,9 +63,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: HomeCell = HomeCell.createCell(collectionView: collectionView, indexPath: indexPath)
-        cell.fillCell(dto: viewModel.getArticleDTO(index: indexPath.row))
-        return cell
+        if viewModel.getArticlesCount() > 0 {
+            let cell: HomeCell = HomeCell.createCell(collectionView: collectionView, indexPath: indexPath)
+            cell.fillCell(dto: viewModel.getArticleDTO(index: indexPath.row))
+            return cell
+        } else {
+            let cell: NoConnectionCell = NoConnectionCell.createCell(collectionView: collectionView, indexPath: indexPath)
+            cell.isUserInteractionEnabled = false
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
